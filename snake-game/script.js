@@ -65,6 +65,8 @@ let life = [{
 }]
 
 let thorn1 = initThorn();
+let thorn2 = initThorn();
+
 
 let obstacle = initThorn();
 
@@ -152,7 +154,10 @@ function draw() {
 
         var thorn = document.getElementById("thorn");
         ctx.drawImage(thorn, thorn1.head.x * CELL_SIZE, thorn1.head.y * CELL_SIZE, CELL_SIZE, CELL_SIZE);
-        for (let i = 1; i < thorn1.body.length; i++) {
+
+        if(Level == 5){
+        var thorn = document.getElementById("thorn2");
+        ctx.drawImage(thorn, thorn2.head.x * CELL_SIZE, thorn2.head.y * CELL_SIZE, CELL_SIZE, CELL_SIZE);
         }
 
         for (let i = 0; i < apple.length; i++) {
@@ -238,9 +243,9 @@ function eat(snake, apple, life) {
             Level++;
             var audio = new Audio('assets/level-up.mp3');
             audio.play();
-            }
         }
     }
+}
     for (let i = 0; i < life.length; i++) {
         let lifes = life[i];
     if (snake.head.x == lifes.position.x && snake.head.y == lifes.position.y) {
@@ -301,6 +306,7 @@ function checkCollision(snakes) {
         Level  = 1;
         snake1 = initSnake();
         thorn1 = initThorn();
+        thorn2 = initThorn();
         }
         else {
             snake1 = initSnake({
@@ -308,6 +314,7 @@ function checkCollision(snakes) {
                 ...initHeadAndBody(),
             });
             thorn1 = initThorn();
+            thorn2 = initThorn();
         }
     }
     return isCollide;
@@ -329,7 +336,7 @@ function move(snake) {
             break;
     }
     moveBody(snake);
-    if (!checkCollision([snake1, thorn1, obstacle])) {
+    if (!checkCollision([snake1, thorn1, thorn2, obstacle])) {
         setTimeout(function() {
             move(snake);
         }, 120);
@@ -371,6 +378,7 @@ document.addEventListener("keydown", function (event) {
 function initGame() {
     move(snake1);
     move(thorn1);
+    move(thorn2);
 }
 
 initGame();
