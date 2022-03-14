@@ -79,9 +79,13 @@ function drawScore(snake) {
     let scoreCtx = scoreCanvas.getContext("2d");
 
     scoreCtx.clearRect(0, 0, CANVAS_SIZE, CANVAS_SIZE);
+    let field = new Image();
+    field.src = "assets/apple.png";
+    scoreCtx.drawImage(field , 33 , 12, 35, 35);
+
     scoreCtx.font = "30px Arial";
     scoreCtx.fillStyle = snake.color
-    scoreCtx.fillText(Score, 10, scoreCanvas.scrollHeight / 2);
+    scoreCtx.fillText(Score, 43, 80);
 }
 
 function drawLife(snake) {
@@ -90,9 +94,13 @@ function drawLife(snake) {
     let lifeCtx = lifeCanvas.getContext("2d");
 
     lifeCtx.clearRect(0, 0, CANVAS_SIZE, CANVAS_SIZE);
+    let field = new Image();
+    field.src = "assets/life.png";
+    lifeCtx.drawImage(field , 33 , 15, 35, 30);
+
     lifeCtx.font = "30px Arial";
     lifeCtx.fillStyle = snake.color
-    lifeCtx.fillText(Life, 10, lifeCanvas.scrollHeight / 2);
+    lifeCtx.fillText(Life, 43, 80);
 }
 
 function drawLevel(snake) {
@@ -101,9 +109,11 @@ function drawLevel(snake) {
     let levelCtx = levelCanvas.getContext("2d");
 
     levelCtx.clearRect(0, 0, CANVAS_SIZE, CANVAS_SIZE);
-    levelCtx.font = "30px Arial";
+    levelCtx.font = "20px Arial";
     levelCtx.fillStyle = snake.color
-    levelCtx.fillText(Level, 10, levelCanvas.scrollHeight / 2);
+    levelCtx.fillText("LEVEL", 20, 40);
+    levelCtx.font = "30px Arial";
+    levelCtx.fillText(Level, 40, 80);
 }
 
 function drawSpeed(snake) {
@@ -112,9 +122,13 @@ function drawSpeed(snake) {
     let speedCtx = speedCanvas.getContext("2d");
 
     speedCtx.clearRect(0, 0, CANVAS_SIZE, CANVAS_SIZE);
+
+    let field = new Image();
+    field.src = "assets/speed.png";
+    speedCtx.drawImage(field , 33 , 15, 35, 30);
     speedCtx.font = "30px Arial";
     speedCtx.fillStyle = snake.color
-    speedCtx.fillText(Speed, 10, speedCanvas.scrollHeight / 2);
+    speedCtx.fillText(Speed, 25, 80);
 }
 
 
