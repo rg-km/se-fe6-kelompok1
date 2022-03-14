@@ -274,6 +274,8 @@ function checkCollision(snakes) {
         }
     }
     if (isCollide) {
+        var audio = new Audio('assets/quack.mp3');
+        audio.play();
         Life-= 1;
         if(Life == 0){
         var audio = new Audio('assets/game-over.wav');
