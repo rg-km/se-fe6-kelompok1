@@ -68,8 +68,6 @@ let thorn1 = initThorn();
 let thorn2 = initThorn();
 
 
-let obstacle = initThorn();
-
 function drawCell(ctx, x, y, color) {
     ctx.fillStyle = color;
     ctx.fillRect(x * CELL_SIZE, y * CELL_SIZE, CELL_SIZE, CELL_SIZE);
@@ -336,7 +334,7 @@ function move(snake) {
             break;
     }
     moveBody(snake);
-    if (!checkCollision([snake1, thorn1, thorn2, obstacle])) {
+    if (!checkCollision([snake1, thorn1, thorn2])) {
         setTimeout(function() {
             move(snake);
         }, 120);
